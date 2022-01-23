@@ -4,6 +4,7 @@
     console.log('links: ', links);
 })*/
 const titleClickHandler = function(event){
+    event.preventDefault();
     const clickedElement = this;
     console.log('Link was clicked!');
     console.log(event);
@@ -30,10 +31,15 @@ const titleClickHandler = function(event){
     }
 
     /* get 'href' attribute from the clicked link */
+    const hrefAttrib = clickedElement.getAttribute('href');
+    console.log(hrefAttrib);
 
     /* find the correct article using the selector (value of 'href' attribute) */
+    const findArticle = document.querySelector(hrefAttrib);
+    console.log(findArticle);
 
     /* add class 'active' to the correct article */
+    findArticle.classList.add('active');
   }
 
   const links = document.querySelectorAll('.titles a');
